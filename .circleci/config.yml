@@ -27,14 +27,11 @@ jobs:
     docker:
       - image: circleci/node:13.8.0
     steps:
-      - attach_workspace:
-          at: ~/
-      - run: cat output.txt
-
+      - run: exit 1
       - run:
-        name: Upload Failed Tests
-        command: echo "fail job"
-        when: on_fail
+          name: on error
+          command: echo "Hello Error!"
+          when: on_fail
   
   # print_pipeline:
   #   docker:
