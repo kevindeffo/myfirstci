@@ -17,7 +17,7 @@ jobs:
       - checkout
       - run:
           name: "hello"
-          command: "echo hello"
+          command: echo " Welcome" ${MY_Name}
 
   print_world:
     docker:
