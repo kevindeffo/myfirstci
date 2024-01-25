@@ -1,0 +1,124 @@
+module.exports = {
+    friendlyName: "Create User",
+    description: "Controller that creates a new user",
+    inputs: {
+        data: {
+            type: {},
+            example: {
+                first_name: "John",
+                last_name: "Doe",
+                email: "johndoe@example.com",
+                date_of_birth: 123456789,
+                gender: "male",
+                address: {line_1: "aaaaa", line_2: "sssssss", line_3: "ddddd"},
+                department: "1",
+                report_to: "2",
+                active: "yes"
+            }
+        },
+        auth: {
+            type: {},
+            example: {
+                app_token: ""
+            }
+        }
+    },
+    exits: {
+        jsonError: {
+            responseType: "jsonError"
+        },
+        success: {
+            responseType: "jsonOk"
+        }
+    },
+    fn: async function(inputs, exits) {
+        let error = [],
+            insertParams = {},
+            simpleValidator = require("@suyashsumaroo/simple-validator"),
+            validationElements = [],
+            addedResponse = "";
+
+        try {
+            if (inputs.data) {
+                validationElements = [{
+                    type: simpleValidator.constants.type.string,
+                    value: inputs.data.first_name,
+                    name: "First Name",
+                    maxLength: 200,
+                    required: true
+                }, {
+                    type: simpleValidator.constants.type.string,
+                    value: inputs.data.last_name,
+                    name: "Last Name",
+                    maxLength: 200,
+                    required: true
+                }, {
+                    type: simpleValidator.constants.type.string,
+                    value: inputs.data.email,
+                    name: "Email",
+                    maxLength: 200,
+                    required: true
+                }, {
+                    type: simpleValidator.constants.type.number,
+                    value: inputs.data.date_of_birth,
+                    name: "Date of Birth",
+                    maxLength: 200,
+                    required: false
+                }, {
+                    type: simpleValidator.constants.type.string,
+                    value: inputs.data.gender,
+                    name: "Gender",
+                    maxLength: 200,
+                    required: false
+                }, {
+                    type: simpleValidator.constants.type.number,
+                    value: inputs.data.department,
+                    name: "Department",
+                    maxLength: 200,
+                    required: true
+                }, {
+                    type: simpleValidator.constants.type.number,
+                    value: inputs.data.report_to,
+                    name: "Report To",
+                    maxLength: 200,
+                    required: false
+                }, {
+                    type: simpleValidator.constants.type.string,
+                    value: inputs.data.active,
+                    name: "Active",
+                    maxLength: 200,
+                    required: false
+                }];
+
+                error = simpleValidator.validate(validationElements);
+
+                if (error.length > 0) {
+                    return exits.jsonError(error);
+                } else {
+                    insertParams = {
+                        first_name: inputs.first_name,
+                        last_name: inputs.last_name,
+                        email: inputs.email,
+                        date_of_birth: inputs.date_of_birth,
+                        gender: inputs.gender,
+                        department: inputs.department,
+                        report_to: inputs.report_to,
+                        active: inputs.active
+                    };
+
+                    addedResponse = await sails.helpers.database.user.createUser(insertParams);
+
+                    return exits.success({
+                        data: addedResponse
+                    });
+                }
+            }
+        } catch (e) {
+            sails.log.debug("create-user.js : e"); //debug
+            sails.log.debug(e); //debug
+            error.push(await sails.helpers.utility.error.getAppError("general.invalid_parameters"));
+
+            return exits.jsonError(error);
+        }
+    }
+};
