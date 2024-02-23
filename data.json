@@ -1,7 +1,7 @@
 {
     "ref": "refs/heads/main",
-    "before": "9fed61ad0a176d550040f828a218a91ebf4b79c6",
-    "after": "2385f75aaea71cbd0329edfa5e4bef069c52d612",
+    "before": "2385f75aaea71cbd0329edfa5e4bef069c52d612",
+    "after": "8c191a880de8271502b40de667247182a2d397f7",
     "repository": {
         "id": 591072615,
         "node_id": "R_kgDOIzsNZw",
@@ -72,7 +72,7 @@
         "deployments_url": "https://api.github.com/repos/kevindeffo/myfirstci/deployments",
         "created_at": 1674163750,
         "updated_at": "2024-01-15T11:52:21Z",
-        "pushed_at": 1708698714,
+        "pushed_at": 1708700114,
         "git_url": "git://github.com/kevindeffo/myfirstci.git",
         "ssh_url": "git@github.com:kevindeffo/myfirstci.git",
         "clone_url": "https://github.com/kevindeffo/myfirstci.git",
@@ -134,15 +134,15 @@
     "deleted": false,
     "forced": false,
     "base_ref": null,
-    "compare": "https://github.com/kevindeffo/myfirstci/compare/9fed61ad0a17...2385f75aaea7",
+    "compare": "https://github.com/kevindeffo/myfirstci/compare/2385f75aaea7...8c191a880de8",
     "commits": [
         {
-            "id": "2385f75aaea71cbd0329edfa5e4bef069c52d612",
-            "tree_id": "1b7ebe6f1d4680c276800431e1a28283a7616653",
+            "id": "9d7f630a76ccd97f2176a3bd9807baf355474a35",
+            "tree_id": "05ae1ac24dfdff46943c0a7c5f088207b962e180",
             "distinct": true,
-            "message": "an update",
-            "timestamp": "2024-02-23T15:27:31+01:00",
-            "url": "https://github.com/kevindeffo/myfirstci/commit/2385f75aaea71cbd0329edfa5e4bef069c52d612",
+            "message": "add data file",
+            "timestamp": "2024-02-23T15:48:13+01:00",
+            "url": "https://github.com/kevindeffo/myfirstci/commit/9d7f630a76ccd97f2176a3bd9807baf355474a35",
             "author": {
                 "name": "kevindeffo",
                 "email": "deffokevin14@gmail.com",
@@ -154,23 +154,67 @@
                 "username": "kevindeffo"
             },
             "added": [
-                "controller/user-controller.js"
+                "data.json"
             ],
-            "removed": [
-                "test2.js"
-            ],
+            "removed": [],
+            "modified": []
+        },
+        {
+            "id": "669ec4fdab4efaace1ca3a00ccd5629e6224964d",
+            "tree_id": "0cf31db22e7720b9828c9faa907158960b28ef46",
+            "distinct": true,
+            "message": "update test file",
+            "timestamp": "2024-02-23T15:49:18+01:00",
+            "url": "https://github.com/kevindeffo/myfirstci/commit/669ec4fdab4efaace1ca3a00ccd5629e6224964d",
+            "author": {
+                "name": "kevindeffo",
+                "email": "deffokevin14@gmail.com",
+                "username": "kevindeffo"
+            },
+            "committer": {
+                "name": "kevindeffo",
+                "email": "deffokevin14@gmail.com",
+                "username": "kevindeffo"
+            },
+            "added": [],
+            "removed": [],
             "modified": [
                 "test.js"
             ]
+        },
+        {
+            "id": "8c191a880de8271502b40de667247182a2d397f7",
+            "tree_id": "4cb0991a6ffcc551b80a9b14ca034dd98836ad3d",
+            "distinct": true,
+            "message": "last commit",
+            "timestamp": "2024-02-23T15:54:44+01:00",
+            "url": "https://github.com/kevindeffo/myfirstci/commit/8c191a880de8271502b40de667247182a2d397f7",
+            "author": {
+                "name": "kevindeffo",
+                "email": "deffokevin14@gmail.com",
+                "username": "kevindeffo"
+            },
+            "committer": {
+                "name": "kevindeffo",
+                "email": "deffokevin14@gmail.com",
+                "username": "kevindeffo"
+            },
+            "added": [
+                "test3.js"
+            ],
+            "removed": [
+                "test.js"
+            ],
+            "modified": []
         }
     ],
     "head_commit": {
-        "id": "2385f75aaea71cbd0329edfa5e4bef069c52d612",
-        "tree_id": "1b7ebe6f1d4680c276800431e1a28283a7616653",
+        "id": "8c191a880de8271502b40de667247182a2d397f7",
+        "tree_id": "4cb0991a6ffcc551b80a9b14ca034dd98836ad3d",
         "distinct": true,
-        "message": "an update",
-        "timestamp": "2024-02-23T15:27:31+01:00",
-        "url": "https://github.com/kevindeffo/myfirstci/commit/2385f75aaea71cbd0329edfa5e4bef069c52d612",
+        "message": "last commit",
+        "timestamp": "2024-02-23T15:54:44+01:00",
+        "url": "https://github.com/kevindeffo/myfirstci/commit/8c191a880de8271502b40de667247182a2d397f7",
         "author": {
             "name": "kevindeffo",
             "email": "deffokevin14@gmail.com",
@@ -182,13 +226,11 @@
             "username": "kevindeffo"
         },
         "added": [
-            "controller/user-controller.js"
+            "test3.js"
         ],
         "removed": [
-            "test2.js"
-        ],
-        "modified": [
             "test.js"
-        ]
+        ],
+        "modified": []
     }
 }
