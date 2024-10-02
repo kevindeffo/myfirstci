@@ -32,5 +32,15 @@ UserSchema.pre('save', async function(next) {
   }
 });
 
+// Method to change password
+UserSchema.methods.changePassword = async function(oldPassword, newPassword) {
+  const isMatch = await bcrypt.compare(oldPassword, this.password);
+  if (!isMatch) {
+    throw new Error('Old password is incorrect');
+  }
+  this.password = await bcrypt.hash(newPassword, 10);
+  await this.save();
+};
+
 // Export the User model
 module.exports = mongoose.model('User', UserSchema);
