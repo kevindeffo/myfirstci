@@ -1,6 +1,7 @@
 const User = require('../model/user');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
+const passwordValidationMiddleware = require('../middlewares/passwordValidation');
 
 async function login(req, res) {
   const { username, password } = req.body;
@@ -25,4 +26,17 @@ async function login(req, res) {
   }
 }
 
-module.exports = { login };
+async function register(req, res) {
+  passwordValidationMiddleware(req, res, async () => {
+    const { username, email, password } = req.body;
+    try {
+      const user = new User({ username, email, password });
+      await user.save();
+      res.status(201).json({ message: 'User registered successfully' });
+    } catch (error) {
+      res.status(500).json({ message: 'Server error' });
+    }
+  });
+}
+
+module.exports = { login, register };
