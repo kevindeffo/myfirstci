@@ -26,7 +26,7 @@ async function login(req, res) {
   }
 }
 
-async function register(req, res) {
+async function register(req, res, next) {
   passwordValidationMiddleware(req, res, async () => {
     const { username, email, password } = req.body;
     try {
