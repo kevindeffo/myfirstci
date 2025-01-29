@@ -23,7 +23,7 @@ async function forgotPassword(req, res) {
         // Simulate saving the token to the user's record
         await saveResetTokenToUser(user, resetToken);
 
-        // Send email with the reset token
+        // Send email with the reset token secure
         const transporter = nodemailer.createTransport({
             service: 'gmail',
             auth: {
